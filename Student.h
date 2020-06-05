@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <string.h>
 using namespace std;
 class Student
 {
@@ -26,9 +28,16 @@ public:
     {
         return 0;
     }
-    virtual void Output()
+    virtual ostream &operator<<(ostream &os)
     {
-        cout << strName << " " << iAge << " ";
+        os << strName << " " << iAge << " ";
+        return os;
+    }
+    virtual string to_string()
+    {
+        stringstream ss;
+        ss << "Name: " << strName << ", Grade: " << iAge;
+        return ss.str();
     }
 };
 class Student6_7 : public Student
@@ -48,10 +57,16 @@ public:
         fAver = (fMath + fLit + fEco) / 3;
         return fAver;
     }
-    void Output()
+    ostream &operator<<(ostream &os)
     {
-        Student::Output();
-        cout << fMath << " " << fLit << " " << fEco << " " << fAver << endl;
+        os << strName << " " << iAge << " " << fMath << " " << fLit << " " << fEco << " " << fAver << endl;
+        return os;
+    }
+    string to_string()
+    {
+        stringstream ss;
+        ss << "Name: " << strName << ", Grade: " << iAge << ", Math: " << fMath << ", Literater: " << fLit << ", Behavior: " << fEco << ", Ave: " << fAver;
+        return ss.str();
     }
 };
 class Student8_9 : public Student
@@ -71,10 +86,15 @@ public:
         fAver = (fMath + fLit + fPhy + fChem) / 4;
         return fAver;
     }
-    void Output()
+    ostream &operator<<(ostream &os)
     {
-        Student::Output();
-        cout << fMath << " " << fLit << " " << fPhy << " " << fChem << " " << fAver << endl;
+        os << strName << " " << iAge << fMath << " " << fLit << " " << fPhy << " " << fChem << " " << fAver << endl;
+    }
+    string to_string()
+    {
+        stringstream ss;
+        ss << "Name: " << strName << ", Grade: " << iAge << ", Math: " << fMath << ", Literater: " << fLit << ", Physic: " << fPhy << ", Chemistry: " << fChem << ", Ave: " << fAver;
+        return ss.str();
     }
 };
 class Student10_11_12 : public Student
@@ -94,9 +114,15 @@ public:
         fAver = (fMath + fLit + fEng) / 3;
         return fAver;
     }
-    void Output()
+    ostream &operator<<(ostream &os)
     {
-        Student::Output();
-        cout << fMath << " " << fLit << " " << fEng << " " << fAver << endl;
+        os << strName << " " << iAge << " " << fMath << " " << fLit << " " << fEng << " " << fAver << endl;
+        return os;
+    }
+    string to_string()
+    {
+        stringstream ss;
+        ss << "Name: " << strName << ", Grade: " << iAge << ", Math: " << fMath << ", Literater: " << fLit << ", Behavior: " << fEng << ", Ave: " << fAver;
+        return ss.str();
     }
 };

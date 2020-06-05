@@ -3,6 +3,9 @@
         "*.html": "html",
         "string": "cpp",
         "vector": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "xstring": "cpp",
+        "ostream": "cpp"
     }
 }

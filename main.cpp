@@ -43,7 +43,8 @@ int main()
     }
     for (int i = 0; i < students.size(); i++)
     {
-        students[i]->Output();
+        string s = students[i]->to_string();
+        cout << s;
     }
     return 0;
 }
